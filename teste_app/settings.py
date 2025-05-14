@@ -14,7 +14,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo',
+    'teste',
 ]
 
 MIDDLEWARE = [
@@ -26,7 +26,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-ROOT_URLCONF = 'todo_app.urls'
+ROOT_URLCONF = 'teste_app.urls'
 
 TEMPLATES = [
     {
@@ -44,7 +44,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'todo_app.wsgi.application'
+WSGI_APPLICATION = 'teste_app.wsgi.application'
 
 DATABASES = {
     'default': {

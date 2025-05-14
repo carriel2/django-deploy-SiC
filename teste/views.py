@@ -8,7 +8,7 @@ def index(request):
         if title:
             Task.objects.create(title=title)
         return redirect('/')
-    return render(request, 'todo/list.html', {'tasks': tasks})
+    return render(request, 'teste/list.html', {'tasks': tasks})
 
 def delete_task(request, task_id):
     Task.objects.filter(id=task_id).delete()
