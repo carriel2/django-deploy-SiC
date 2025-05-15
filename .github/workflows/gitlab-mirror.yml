@@ -1,0 +1,26 @@
+name: Mirror to GitLab
+
+on:
+  push:
+    branches:
+      - main  # ou troque pelo branch que você usa
+
+jobs:
+  gitlab-mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GITLAB_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+
+      - name: Push para o GitLab
+        run: |
+          git remote add gitlab git@gitlab.com:Carriel/deploy-django-sic.git
+          git push --mirror gitlab
